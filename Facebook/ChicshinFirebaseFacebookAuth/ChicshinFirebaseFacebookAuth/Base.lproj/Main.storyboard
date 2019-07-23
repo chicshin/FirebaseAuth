@@ -25,6 +25,9 @@
                                     <constraint firstAttribute="width" constant="230" id="Nok-n6-olr"/>
                                     <constraint firstAttribute="height" constant="48" id="asx-5y-lX9"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="facebookLoginButton:" destination="BYZ-38-t0r" eventType="valueChanged" id="Ihr-PM-d33"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -36,11 +39,95 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="facebookLoginButton" destination="bsY-il-w7m" id="9Mj-tR-NzA"/>
+                        <outlet property="facebookLoginButton" destination="bsY-il-w7m" id="hoY-8C-dHC"/>
+                        <segue destination="GrF-r8-gOw" kind="show" identifier="Home" id="dUT-yg-je7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-59" y="21"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="P5t-jI-xQo">
+            <objects>
+                <viewController id="8vm-vT-BoR" customClass="HomeController" customModule="ChicshinFirebaseFacebookAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x0c-SY-glx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGg-Qa-x2u">
+                                <rect key="frame" x="186" y="437.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VGg-Qa-x2u" firstAttribute="centerX" secondItem="x0c-SY-glx" secondAttribute="centerX" id="J4m-uB-rnx"/>
+                            <constraint firstItem="VGg-Qa-x2u" firstAttribute="centerY" secondItem="x0c-SY-glx" secondAttribute="centerY" id="ghC-hN-F4g"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BdM-Bh-SHh"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="baseline_home_black_24pt" id="VNB-qm-D1E"/>
+                    <connections>
+                        <outlet property="userLabel" destination="VGg-Qa-x2u" id="nFP-Qe-nsl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UHs-pJ-pIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1765" y="-169"/>
+        </scene>
+        <!--User-->
+        <scene sceneID="6jp-Sm-UCs">
+            <objects>
+                <viewController id="cwA-Qd-VRa" customClass="UserController" customModule="ChicshinFirebaseFacebookAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z4X-v3-fbu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gow-Tg-0NM">
+                                <rect key="frame" x="177" y="433" width="60" height="30"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signout:" destination="cwA-Qd-VRa" eventType="touchUpInside" id="VFy-6V-tAr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Gow-Tg-0NM" firstAttribute="centerX" secondItem="Z4X-v3-fbu" secondAttribute="centerX" id="Juv-CE-IVN"/>
+                            <constraint firstItem="Gow-Tg-0NM" firstAttribute="centerY" secondItem="Z4X-v3-fbu" secondAttribute="centerY" id="WJz-5P-dnG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2bS-ch-7rd"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="User" image="baseline_person_black_24pt" id="MUv-8g-klV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YyB-Mf-6A9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1764" y="517"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="uvm-Ti-0FW">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="GrF-r8-gOw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OKI-rb-BaC">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="8vm-vT-BoR" kind="relationship" relationship="viewControllers" id="gX5-0r-Bf1"/>
+                        <segue destination="cwA-Qd-VRa" kind="relationship" relationship="viewControllers" id="aeH-Lg-UML"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sKs-Rn-AD2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="857.97101449275374" y="20.758928571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="baseline_home_black_24pt" width="24" height="24"/>
+        <image name="baseline_person_black_24pt" width="24" height="24"/>
+    </resources>
 </document>

@@ -14,11 +14,19 @@ import FBSDKLoginKit
 class ViewController: UIViewController, LoginButtonDelegate  {
     
 
+
     @IBOutlet weak var facebookLoginButton: FBLoginButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         facebookLoginButton.delegate = self
+        
+        Auth.auth().addStateDidChangeListener({ (user, err) in
+            
+            if(user != nil){
+                self.performSegue(withIdentifier: "Home", sender: nil)
+            }
+        })
         
     }
     
