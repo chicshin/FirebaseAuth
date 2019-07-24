@@ -24,8 +24,8 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.463454419716-m4usqg2md0ltg6fq715agj628k6jvk33</string>
-                <string>fb2253364241365965</string>
-            </array>
+				<string>fb2253364241365965</string>
+			</array>
 		</dict>
 		<dict/>
 	</array>
@@ -54,16 +54,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>FacebookAppID</key>
-    <string>2253364241365965</string>
-    <key>FacebookDisplayName</key>
-    <string>ChicshinFirebaseAuth</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-share-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
+	<key>FacebookAppID</key>
+	<string>2253364241365965</string>
+	<key>FacebookDisplayName</key>
+	<string>ChicshinFirebaseAuth</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string></string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 </dict>
 </plist>

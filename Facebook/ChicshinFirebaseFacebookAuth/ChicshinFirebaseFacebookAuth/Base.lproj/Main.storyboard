@@ -93,11 +93,20 @@
                                     <action selector="signout:" destination="cwA-Qd-VRa" eventType="touchUpInside" id="VFy-6V-tAr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cym-9d-kIW">
+                                <rect key="frame" x="136.5" y="395" width="141" height="30"/>
+                                <state key="normal" title="Profile Photo Upload"/>
+                                <connections>
+                                    <action selector="profilePhotoUpload:" destination="cwA-Qd-VRa" eventType="touchUpInside" id="tjf-gf-1qj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Gow-Tg-0NM" firstAttribute="top" secondItem="Cym-9d-kIW" secondAttribute="bottom" constant="8" id="7Tu-Fe-20S"/>
                             <constraint firstItem="Gow-Tg-0NM" firstAttribute="centerX" secondItem="Z4X-v3-fbu" secondAttribute="centerX" id="Juv-CE-IVN"/>
                             <constraint firstItem="Gow-Tg-0NM" firstAttribute="centerY" secondItem="Z4X-v3-fbu" secondAttribute="centerY" id="WJz-5P-dnG"/>
+                            <constraint firstItem="Cym-9d-kIW" firstAttribute="centerX" secondItem="Z4X-v3-fbu" secondAttribute="centerX" id="m2y-Kx-A2x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2bS-ch-7rd"/>
                     </view>
@@ -113,6 +122,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="GrF-r8-gOw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OKI-rb-BaC">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
