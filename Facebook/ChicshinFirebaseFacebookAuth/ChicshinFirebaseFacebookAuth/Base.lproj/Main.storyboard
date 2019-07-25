@@ -95,20 +95,27 @@
                                                     <rect key="frame" x="20" y="139" width="24" height="24"/>
                                                     <state key="normal" image="baseline_favorite_border_black_24pt"/>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDw-42-Y38">
+                                                    <rect key="frame" x="51" y="140" width="24" height="24"/>
+                                                    <state key="normal" image="baseline_delete_black_24pt"/>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="trailingMargin" secondItem="Qsr-5U-ocg" secondAttribute="trailing" constant="12" id="AWd-u9-Aeu"/>
                                             <constraint firstItem="HeB-gW-8PS" firstAttribute="leading" secondItem="htN-zz-urU" secondAttribute="leading" id="INw-Dx-gh0"/>
+                                            <constraint firstItem="UDw-42-Y38" firstAttribute="top" secondItem="HeB-gW-8PS" secondAttribute="bottom" constant="8" id="KYS-9D-n2V"/>
                                             <constraint firstItem="g0L-8H-qGV" firstAttribute="top" secondItem="Qsr-5U-ocg" secondAttribute="bottom" constant="1" id="UFZ-50-56U"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="g0L-8H-qGV" secondAttribute="trailing" constant="12" id="ZH9-Cf-iiu"/>
                                             <constraint firstItem="Qtu-fy-mDK" firstAttribute="top" secondItem="HeB-gW-8PS" secondAttribute="bottom" constant="7" id="fvn-bQ-Dso"/>
                                             <constraint firstItem="Qsr-5U-ocg" firstAttribute="top" secondItem="HeB-gW-8PS" secondAttribute="bottom" constant="7" id="gEL-hg-Kfq"/>
                                             <constraint firstItem="HeB-gW-8PS" firstAttribute="top" secondItem="htN-zz-urU" secondAttribute="top" id="qZo-SD-xRe"/>
+                                            <constraint firstItem="UDw-42-Y38" firstAttribute="leading" secondItem="Qtu-fy-mDK" secondAttribute="trailing" constant="7" id="rjh-lT-8zM"/>
                                             <constraint firstAttribute="trailing" secondItem="HeB-gW-8PS" secondAttribute="trailing" id="sGW-iS-z5S"/>
                                             <constraint firstItem="Qtu-fy-mDK" firstAttribute="leading" secondItem="htN-zz-urU" secondAttribute="leadingMargin" constant="12" id="tIs-JJ-ym0"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="deleteButton" destination="UDw-42-Y38" id="WNy-Wf-xSa"/>
                                             <outlet property="explanation" destination="g0L-8H-qGV" id="oYg-yv-BSa"/>
                                             <outlet property="imageView" destination="HeB-gW-8PS" id="GX3-sc-C3S"/>
                                             <outlet property="starButton" destination="Qtu-fy-mDK" id="UKj-Xg-Y2Y"/>
@@ -262,6 +269,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="baseline_delete_black_24pt" width="24" height="24"/>
         <image name="baseline_favorite_border_black_24pt" width="24" height="24"/>
         <image name="baseline_home_black_24pt" width="24" height="24"/>
         <image name="baseline_person_black_24pt" width="24" height="24"/>

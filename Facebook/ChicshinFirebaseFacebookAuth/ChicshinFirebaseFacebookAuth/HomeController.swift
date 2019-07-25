@@ -22,7 +22,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         //To speed up for image loading process
         //use observeSingleEvent(), run first-time
         //instead of observe()
-        Database.database().reference().child("users").observeSingleEvent(of: DataEventType.value, with: { (DataSnapshot) in
+        Database.database().reference().child("users").observe(DataEventType.value, with: { (DataSnapshot) in
             self.array.removeAll()
             self.uidKey.removeAll()
             
@@ -34,8 +34,11 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
                 self.array.append(userDTO)
                 self.uidKey.append(uidKey)
+            
+                DispatchQueue.main.async {
+                    self.collectView.reloadData()
+                }
             }
-            self.collectView.reloadData()
         })
         // Do any additional setup after loading the view.
     }
@@ -66,6 +69,10 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }else{
             cell.starButton.setImage(#imageLiteral(resourceName: "baseline_favorite_border_black_24pt"), for: .normal)
         }
+        
+        cell.deleteButton.tag = indexPath.row
+        cell.deleteButton.addTarget(self, action: #selector(delete(sender:)), for: .touchUpInside)
+        
         return cell
     }
     
@@ -105,6 +112,16 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
         }
     }
+    
+    @objc func delete(sender:UIButton){
+        Storage.storage().reference().child("ios_image").child(self.array[sender.tag].imageName!).delete(completion: { (err) in
+            if(err != nil){
+                print("Error Occured")
+            }else{
+                
+            }
+        })
+    }
 
     /*
     // MARK: - Navigation
@@ -120,6 +137,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
 class CustomCell : UICollectionViewCell {
     
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var starButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var subject: UILabel!

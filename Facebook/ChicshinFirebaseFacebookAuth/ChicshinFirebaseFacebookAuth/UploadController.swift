@@ -62,7 +62,8 @@ class UploadController: UIViewController, UIImagePickerControllerDelegate, UINav
                             "uid" : Auth.auth().currentUser?.uid,
                             "subject" : self.subject.text!,
                             "explanation" : self.explanation.text!,
-                            "imageUrl" : downloadURL
+                            "imageUrl" : downloadURL,
+                            "imageName" : imageName
                             ])
                     self.dismiss(animated: true, completion: nil)
                     }
