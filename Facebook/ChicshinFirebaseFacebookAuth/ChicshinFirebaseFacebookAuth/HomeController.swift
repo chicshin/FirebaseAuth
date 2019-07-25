@@ -35,10 +35,12 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 self.array.append(userDTO)
                 self.uidKey.append(uidKey)
             
-                DispatchQueue.main.async {
-                    self.collectView.reloadData()
-                }
             }
+            
+            DispatchQueue.main.async {
+                self.collectView.reloadData()
+            }
+            
         })
         // Do any additional setup after loading the view.
     }
@@ -58,8 +60,13 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         cell.subject.text = array[indexPath.row].subject
         cell.explanation.text = array[indexPath.row].explanation
         
-        let data = try? Data(contentsOf: URL(string: array[indexPath.row].imageUrl!)!)
-        cell.imageView.image = UIImage(data: data!)
+        URLSession.shared.dataTask(with: URL(string: array[indexPath.row].imageUrl!)!) { (data, response, err) in
+            if(err != nil) {return}
+          
+            DispatchQueue.main.async {
+                cell.imageView.image = UIImage(data: data!)
+            }
+        }.resume()
         
         cell.starButton.tag = indexPath.row
         cell.starButton.addTarget(self, action: #selector(like(_:)), for: .touchUpInside)
@@ -78,11 +85,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @objc func like(_ sender :UIButton) {
         
-        if(sender.currentImage == #imageLiteral(resourceName: "baseline_favorite_black_24pt")){
-            sender.setImage(#imageLiteral(resourceName: "baseline_favorite_border_black_24pt"), for: .normal)
-        }else{
-            sender.setImage(#imageLiteral(resourceName: "baseline_favorite_black_24pt"), for: .normal)
-        }
+
         Database.database().reference().child("users").child(self.uidKey[sender.tag]).runTransactionBlock({ (currentData: MutableData) -> TransactionResult in
             if var post = currentData.value as? [String : AnyObject], let uid = Auth.auth().currentUser?.uid {
                 var stars: Dictionary<String, Bool>
@@ -118,7 +121,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             if(err != nil){
                 print("Error Occured")
             }else{
-                
+                Database.database().reference().child("users").child(self.uidKey[sender.tag]).removeValue()
             }
         })
     }
