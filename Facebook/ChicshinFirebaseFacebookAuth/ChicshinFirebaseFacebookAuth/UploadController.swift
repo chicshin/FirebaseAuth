@@ -57,7 +57,7 @@ class UploadController: UIViewController, UIImagePickerControllerDelegate, UINav
 
                 riversRef.downloadURL { (url, error) in
                     if let downloadURL = url?.absoluteString{
-                        Database.database().reference().child("users").setValue([
+                        Database.database().reference().child("users").childByAutoId().setValue([
                             "userId" : Auth.auth().currentUser?.email,
                             "uid" : Auth.auth().currentUser?.uid,
                             "subject" : self.subject.text!,

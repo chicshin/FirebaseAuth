@@ -16,6 +16,7 @@
 		7A062D5522E6F259009CC725 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A062D5422E6F259009CC725 /* HomeController.swift */; };
 		7A062D5722E6F265009CC725 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A062D5622E6F265009CC725 /* UserController.swift */; };
 		7A062D5922E82F01009CC725 /* UploadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A062D5822E82F01009CC725 /* UploadController.swift */; };
+		7A97ADC622E96A5000EC724A /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97ADC522E96A5000EC724A /* UserDTO.swift */; };
 		A92FCAC5F9F21C6EB4888949 /* Pods_ChicshinFirebaseFacebookAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DA785578D9FD29940C0393 /* Pods_ChicshinFirebaseFacebookAuth.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		7A062D5422E6F259009CC725 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		7A062D5622E6F265009CC725 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		7A062D5822E82F01009CC725 /* UploadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadController.swift; sourceTree = "<group>"; };
+		7A97ADC522E96A5000EC724A /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		D8A0DB944579A5F0C8D7BB26 /* Pods-ChicshinFirebaseFacebookAuth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChicshinFirebaseFacebookAuth.debug.xcconfig"; path = "Target Support Files/Pods-ChicshinFirebaseFacebookAuth/Pods-ChicshinFirebaseFacebookAuth.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 				7A062D5422E6F259009CC725 /* HomeController.swift */,
 				7A062D5622E6F265009CC725 /* UserController.swift */,
 				7A062D5822E82F01009CC725 /* UploadController.swift */,
+				7A97ADC522E96A5000EC724A /* UserDTO.swift */,
 			);
 			path = ChicshinFirebaseFacebookAuth;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A97ADC622E96A5000EC724A /* UserDTO.swift in Sources */,
 				7A062D4322E448F7009CC725 /* ViewController.swift in Sources */,
 				7A062D5922E82F01009CC725 /* UploadController.swift in Sources */,
 				7A062D4122E448F7009CC725 /* AppDelegate.swift in Sources */,
