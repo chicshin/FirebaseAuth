@@ -91,6 +91,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qtu-fy-mDK">
+                                                    <rect key="frame" x="20" y="139" width="24" height="24"/>
+                                                    <state key="normal" image="baseline_favorite_border_black_24pt"/>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -98,13 +102,16 @@
                                             <constraint firstItem="HeB-gW-8PS" firstAttribute="leading" secondItem="htN-zz-urU" secondAttribute="leading" id="INw-Dx-gh0"/>
                                             <constraint firstItem="g0L-8H-qGV" firstAttribute="top" secondItem="Qsr-5U-ocg" secondAttribute="bottom" constant="1" id="UFZ-50-56U"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="g0L-8H-qGV" secondAttribute="trailing" constant="12" id="ZH9-Cf-iiu"/>
+                                            <constraint firstItem="Qtu-fy-mDK" firstAttribute="top" secondItem="HeB-gW-8PS" secondAttribute="bottom" constant="7" id="fvn-bQ-Dso"/>
                                             <constraint firstItem="Qsr-5U-ocg" firstAttribute="top" secondItem="HeB-gW-8PS" secondAttribute="bottom" constant="7" id="gEL-hg-Kfq"/>
                                             <constraint firstItem="HeB-gW-8PS" firstAttribute="top" secondItem="htN-zz-urU" secondAttribute="top" id="qZo-SD-xRe"/>
                                             <constraint firstAttribute="trailing" secondItem="HeB-gW-8PS" secondAttribute="trailing" id="sGW-iS-z5S"/>
+                                            <constraint firstItem="Qtu-fy-mDK" firstAttribute="leading" secondItem="htN-zz-urU" secondAttribute="leadingMargin" constant="12" id="tIs-JJ-ym0"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="explanation" destination="g0L-8H-qGV" id="oYg-yv-BSa"/>
                                             <outlet property="imageView" destination="HeB-gW-8PS" id="GX3-sc-C3S"/>
+                                            <outlet property="starButton" destination="Qtu-fy-mDK" id="UKj-Xg-Y2Y"/>
                                             <outlet property="subject" destination="Qsr-5U-ocg" id="KDz-JM-Rae"/>
                                         </connections>
                                     </collectionViewCell>
@@ -255,6 +262,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="baseline_favorite_border_black_24pt" width="24" height="24"/>
         <image name="baseline_home_black_24pt" width="24" height="24"/>
         <image name="baseline_person_black_24pt" width="24" height="24"/>
     </resources>
