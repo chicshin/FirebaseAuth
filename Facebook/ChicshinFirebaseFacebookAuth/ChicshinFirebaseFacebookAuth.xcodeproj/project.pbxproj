@@ -35,6 +35,7 @@
 		7A062D5422E6F259009CC725 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		7A062D5622E6F265009CC725 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		7A062D5822E82F01009CC725 /* UploadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadController.swift; sourceTree = "<group>"; };
+		7A16606122EABCA500E3F37F /* ChicshinFirebaseFacebookAuth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChicshinFirebaseFacebookAuth.entitlements; sourceTree = "<group>"; };
 		7A74723822E9D99200D05404 /* FireSwiftRemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FireSwiftRemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		7A97ADC522E96A5000EC724A /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		D8A0DB944579A5F0C8D7BB26 /* Pods-ChicshinFirebaseFacebookAuth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChicshinFirebaseFacebookAuth.debug.xcconfig"; path = "Target Support Files/Pods-ChicshinFirebaseFacebookAuth/Pods-ChicshinFirebaseFacebookAuth.debug.xcconfig"; sourceTree = "<group>"; };
@@ -81,6 +82,7 @@
 		7A062D3F22E448F7009CC725 /* ChicshinFirebaseFacebookAuth */ = {
 			isa = PBXGroup;
 			children = (
+				7A16606122EABCA500E3F37F /* ChicshinFirebaseFacebookAuth.entitlements */,
 				7A062D4022E448F7009CC725 /* AppDelegate.swift */,
 				7A062D4222E448F7009CC725 /* ViewController.swift */,
 				7A062D4422E448F7009CC725 /* Main.storyboard */,
@@ -140,6 +142,11 @@
 				TargetAttributes = {
 					7A062D3C22E448F7009CC725 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -375,6 +382,7 @@
 			baseConfigurationReference = D8A0DB944579A5F0C8D7BB26 /* Pods-ChicshinFirebaseFacebookAuth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ChicshinFirebaseFacebookAuth/ChicshinFirebaseFacebookAuth.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X9VV74H39W;
 				INFOPLIST_FILE = ChicshinFirebaseFacebookAuth/Info.plist;
@@ -394,6 +402,7 @@
 			baseConfigurationReference = 788531E0836C6C9AF9F4351B /* Pods-ChicshinFirebaseFacebookAuth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ChicshinFirebaseFacebookAuth/ChicshinFirebaseFacebookAuth.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X9VV74H39W;
 				INFOPLIST_FILE = ChicshinFirebaseFacebookAuth/Info.plist;

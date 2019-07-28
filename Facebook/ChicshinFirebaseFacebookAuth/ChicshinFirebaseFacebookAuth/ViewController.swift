@@ -49,6 +49,7 @@ class ViewController: UIViewController, LoginButtonDelegate  {
             }
         })
         
+        
     }
     
     func displayMessage(){
@@ -67,7 +68,6 @@ class ViewController: UIViewController, LoginButtonDelegate  {
                 self.present(alert, animated: true, completion: nil)
             }
         }else{
-            print("Home Segue")
             self.performSegue(withIdentifier: "Home", sender: nil)
         }
         if(color == 1){
@@ -94,7 +94,6 @@ class ViewController: UIViewController, LoginButtonDelegate  {
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
 
     }
-
 
 }
 
