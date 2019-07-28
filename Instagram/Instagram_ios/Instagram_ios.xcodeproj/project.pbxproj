@@ -25,6 +25,9 @@
 		7AAAA44722EC9EB7006C3B6A /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AAAA44622EC9EB7006C3B6A /* Activity.storyboard */; };
 		7AAAA44922EC9F46006C3B6A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AAAA44822EC9F46006C3B6A /* Profile.storyboard */; };
 		7AAAA44D22ECAB3F006C3B6A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AAAA44C22ECAB3F006C3B6A /* GoogleService-Info.plist */; };
+		7ABDA5DB22EDAB2D000D4B03 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA5DA22EDAB2D000D4B03 /* AuthService.swift */; };
+		7ABDA5E522EDD9B9000D4B03 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDA5E222EDD9B9000D4B03 /* ProgressHUD.bundle */; };
+		7ABDA5E622EDD9B9000D4B03 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDA5E422EDD9B9000D4B03 /* ProgressHUD.m */; };
 		FA5F4985692FD818BB8129DD /* Pods_Instagram_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EFD92DFEA77AF6A513A312 /* Pods_Instagram_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +53,11 @@
 		7AAAA44622EC9EB7006C3B6A /* Activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
 		7AAAA44822EC9F46006C3B6A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		7AAAA44C22ECAB3F006C3B6A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7ABDA5DA22EDAB2D000D4B03 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		7ABDA5E122EDD9B8000D4B03 /* Instagram_ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Instagram_ios-Bridging-Header.h"; sourceTree = "<group>"; };
+		7ABDA5E222EDD9B9000D4B03 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		7ABDA5E322EDD9B9000D4B03 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		7ABDA5E422EDD9B9000D4B03 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		9911590B15956FDDA78CE12D /* Pods-Instagram_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram_ios.release.xcconfig"; path = "Target Support Files/Pods-Instagram_ios/Pods-Instagram_ios.release.xcconfig"; sourceTree = "<group>"; };
 		9FBB00EEE61FCA1DB58DC7C3 /* Pods-Instagram_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram_ios.debug.xcconfig"; path = "Target Support Files/Pods-Instagram_ios/Pods-Instagram_ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,13 +96,18 @@
 			isa = PBXGroup;
 			children = (
 				7AAAA40A22EC7D2C006C3B6A /* AppDelegate.swift */,
-				7AAAA41122EC7D2D006C3B6A /* Assets.xcassets */,
+				7ABDA5DA22EDAB2D000D4B03 /* AuthService.swift */,
 				7AAAA41E22EC7F25006C3B6A /* Start.storyboard */,
+				7AAAA44A22EC9FDF006C3B6A /* Storyboards */,
+				7AAAA44B22ECA033006C3B6A /* ViewControllers */,
+				7AAAA41122EC7D2D006C3B6A /* Assets.xcassets */,
+				7ABDA5E222EDD9B9000D4B03 /* ProgressHUD.bundle */,
+				7ABDA5E322EDD9B9000D4B03 /* ProgressHUD.h */,
+				7ABDA5E422EDD9B9000D4B03 /* ProgressHUD.m */,
 				7AAAA41322EC7D2D006C3B6A /* LaunchScreen.storyboard */,
 				7AAAA41622EC7D2D006C3B6A /* Info.plist */,
 				7AAAA44C22ECAB3F006C3B6A /* GoogleService-Info.plist */,
-				7AAAA44A22EC9FDF006C3B6A /* Storyboards */,
-				7AAAA44B22ECA033006C3B6A /* ViewControllers */,
+				7ABDA5E122EDD9B8000D4B03 /* Instagram_ios-Bridging-Header.h */,
 			);
 			path = Instagram_ios;
 			sourceTree = "<group>";
@@ -177,6 +190,7 @@
 				TargetAttributes = {
 					7AAAA40622EC7D2C006C3B6A = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -203,6 +217,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ABDA5E522EDD9B9000D4B03 /* ProgressHUD.bundle in Resources */,
 				7AAAA44522EC9E16006C3B6A /* Camera.storyboard in Resources */,
 				7AAAA41522EC7D2D006C3B6A /* LaunchScreen.storyboard in Resources */,
 				7AAAA44122EC9A4D006C3B6A /* Home.storyboard in Resources */,
@@ -267,7 +282,9 @@
 			files = (
 				7AAAA42822EC8CBF006C3B6A /* SearchViewController.swift in Sources */,
 				7AAAA42422EC7FC5006C3B6A /* SignUpViewController.swift in Sources */,
+				7ABDA5E622EDD9B9000D4B03 /* ProgressHUD.m in Sources */,
 				7AAAA42222EC7FAC006C3B6A /* SignInViewController.swift in Sources */,
+				7ABDA5DB22EDAB2D000D4B03 /* AuthService.swift in Sources */,
 				7AAAA40B22EC7D2C006C3B6A /* AppDelegate.swift in Sources */,
 				7AAAA42C22EC8CD5006C3B6A /* ActivityViewController.swift in Sources */,
 				7AAAA42622EC8CAD006C3B6A /* HomeViewController.swift in Sources */,
@@ -435,6 +452,7 @@
 			baseConfigurationReference = 9FBB00EEE61FCA1DB58DC7C3 /* Pods-Instagram_ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X9VV74H39W;
 				INFOPLIST_FILE = Instagram_ios/Info.plist;
@@ -444,6 +462,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chicshin.Instagram-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Instagram_ios/Instagram_ios-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -454,6 +474,7 @@
 			baseConfigurationReference = 9911590B15956FDDA78CE12D /* Pods-Instagram_ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X9VV74H39W;
 				INFOPLIST_FILE = Instagram_ios/Info.plist;
@@ -463,6 +484,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chicshin.Instagram-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Instagram_ios/Instagram_ios-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

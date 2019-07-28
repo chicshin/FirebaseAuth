@@ -18,7 +18,7 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         emailTextField.backgroundColor = .clear
         emailTextField.tintColor = .darkGray
         emailTextField.textColor = .darkGray
@@ -39,8 +39,15 @@ class SignInViewController: UIViewController {
         bottomLayerPassword.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
         passwordTextField.layer.addSublayer(bottomLayerPassword)
 
+        customSignInButton.backgroundColor = .darkGray
+        customSignInButton.setTitleColor(.lightGray, for: UIControl.State.normal)
+        customSignInButton.isEnabled = false
         handleTextField()
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,16 +68,21 @@ class SignInViewController: UIViewController {
             customSignInButton.isEnabled = false
             return
         }
+        customSignInButton.setTitleColor(.white, for: UIControl.State.normal)
         customSignInButton.backgroundColor = #colorLiteral(red: 0.9849042296, green: 0.7021037936, blue: 0, alpha: 0.6381635274)
         customSignInButton.isEnabled = true
     }
     
     @IBAction func signInButton_touchUpInside(_ sender: Any) {
-        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, err) in
-            if err != nil{
-                return
-            }
+        view.endEditing(true)
+        ProgressHUD.show("Waiting...", interaction: false)
+        AuthService.signIn(email: emailTextField.text!, password: passwordTextField.text!, onSuccess: {
+            Timer.scheduledTimer(withTimeInterval: 0, repeats: false, block: { (timer) in
+                ProgressHUD.showSuccess("Success")
+            })
             self.performSegue(withIdentifier: "signInTabBarVC", sender: nil)
+        }, onError: { error in
+            ProgressHUD.showError(error!)
         })
     }
     

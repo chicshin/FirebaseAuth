@@ -61,7 +61,14 @@ class SignUpViewController: UIViewController {
         profileImage.isUserInteractionEnabled = true
         profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
         
+        customSignUpButton.backgroundColor = .darkGray
+        customSignUpButton.setTitleColor(.lightGray, for: UIControl.State.normal)
+        customSignUpButton.isEnabled = false
         handleTextField()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     func handleTextField(){
@@ -86,39 +93,18 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpButton(_ sender: Any) {
-        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, err) in
-            
-            if err != nil{
-                print(err!.localizedDescription)
-                return
-            }
-            
-            let uid = Auth.auth().currentUser?.uid
-            let image = self.profileImage.image?.jpegData(compressionQuality: 0.1)
-            
-            let databaseRef = Database.database().reference()
-            
-            
-            let storageRef = Storage.storage().reference()
-            let storageProfileRef = storageRef.child("profile-Image").child(uid!)
-//            let metadata = StorageMetadata()
-//            metadata.contentType = "Image/jpg"
-            
-            storageProfileRef.putData(image!, metadata: nil, completion: { (storageMetadata, err) in
-                if err != nil{
-                    return
-                }
-                storageProfileRef.downloadURL(completion: { (url, err) in
-                    let imageUrl = url?.absoluteString
-                    let values = ["username": self.usernameTextField.text!, "uid": uid, "email": self.emailTextField.text!, "profileImage": imageUrl]
-                    databaseRef.child("users").child(uid!).setValue(values, withCompletionBlock: { (err, ref)  in
-                        if err != nil{
-                            return
-                        }
-                        self.performSegue(withIdentifier: "signUpTabBarVC", sender: nil)
-                    })
-                })
+        view.endEditing(true)
+        ProgressHUD.show("Waiting...", interaction: false)
+        
+        let imageData = self.profileImage.image?.jpegData(compressionQuality: 0.1)
+        
+        AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData!, onSuccess: {
+            Timer.scheduledTimer(withTimeInterval: 0, repeats: false, block: { (timer) in
+                ProgressHUD.showSuccess("Success")
             })
+            self.performSegue(withIdentifier: "signUpTabBarVC", sender: nil)
+        }, onError: { error in
+            ProgressHUD.showError(error!)
         })
     }
 }
