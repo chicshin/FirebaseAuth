@@ -8,13 +8,21 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        loadPosts()
+    }
+    
+    func loadPosts(){
+        Database.database().reference().child("posts").observe(.childAdded, with: { (snapshot: DataSnapshot) in
+            print(snapshot.value)
+        })
     }
     @IBAction func logOut_touchUpInside(_ sender: Any) {
         do {
@@ -26,16 +34,20 @@ class HomeViewController: UIViewController {
         let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
         self.present(signInVC, animated: true, completion: nil)
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension HomeViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 100
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
+        cell.backgroundColor = .orange
+        cell.textLabel?.text = "\(indexPath.row)"
+        return cell
+    }
+    
+    
 }

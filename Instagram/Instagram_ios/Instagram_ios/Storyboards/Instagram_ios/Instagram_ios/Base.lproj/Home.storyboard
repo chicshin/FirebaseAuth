@@ -17,7 +17,29 @@
                     <view key="view" contentMode="scaleToFill" id="1XC-8z-FK8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rP7-CB-kK7">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" id="fJ5-Do-3x5">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fJ5-Do-3x5" id="OI3-WB-460">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rP7-CB-kK7" firstAttribute="top" secondItem="fgw-pC-M3h" secondAttribute="top" id="QvA-EJ-yQH"/>
+                            <constraint firstAttribute="bottom" secondItem="rP7-CB-kK7" secondAttribute="bottom" id="Rul-qj-yTJ"/>
+                            <constraint firstItem="rP7-CB-kK7" firstAttribute="trailing" secondItem="fgw-pC-M3h" secondAttribute="trailing" id="bRH-k7-ibi"/>
+                            <constraint firstItem="rP7-CB-kK7" firstAttribute="leading" secondItem="fgw-pC-M3h" secondAttribute="leading" id="gPl-vo-Q05"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fgw-pC-M3h"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="Zpg-B2-Saf">
@@ -27,10 +49,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="rP7-CB-kK7" id="xcl-Yc-DCV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fri-xu-IUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1313" y="1051"/>
+            <point key="canvasLocation" x="1311.5942028985507" y="1050.6696428571429"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cTq-M0-PZl">

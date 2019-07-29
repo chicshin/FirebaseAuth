@@ -17,14 +17,68 @@
                     <view key="view" contentMode="scaleToFill" id="0rb-ks-b2V">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mW0-rP-fg4">
+                                <rect key="frame" x="0.0" y="88" width="414" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-photo" translatesAutoresizingMaskIntoConstraints="NO" id="FF0-p5-Gf6">
+                                        <rect key="frame" x="8" y="10" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="UrX-2U-7ay"/>
+                                            <constraint firstAttribute="height" constant="80" id="x2i-Sh-MxW"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WLX-0B-4Jc">
+                                        <rect key="frame" x="96" y="10" width="310" height="80"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="FF0-p5-Gf6" firstAttribute="leading" secondItem="mW0-rP-fg4" secondAttribute="leading" constant="8" id="7yY-i6-ME2"/>
+                                    <constraint firstItem="WLX-0B-4Jc" firstAttribute="leading" secondItem="FF0-p5-Gf6" secondAttribute="trailing" constant="8" id="Is0-Ay-aRT"/>
+                                    <constraint firstItem="WLX-0B-4Jc" firstAttribute="top" secondItem="mW0-rP-fg4" secondAttribute="top" constant="10" id="PB2-nM-6tr"/>
+                                    <constraint firstAttribute="height" constant="100" id="PpX-xY-jDJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="WLX-0B-4Jc" secondAttribute="bottom" constant="10" id="fPd-ta-tAF"/>
+                                    <constraint firstItem="FF0-p5-Gf6" firstAttribute="top" secondItem="mW0-rP-fg4" secondAttribute="top" constant="10" id="inS-Cd-XrM"/>
+                                    <constraint firstAttribute="bottom" secondItem="FF0-p5-Gf6" secondAttribute="bottom" constant="10" id="lVU-EL-nKI"/>
+                                    <constraint firstAttribute="trailing" secondItem="WLX-0B-4Jc" secondAttribute="trailing" constant="8" id="tmP-tM-qAY"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C95-XI-use">
+                                <rect key="frame" x="8" y="755" width="398" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="kdh-N1-ij8"/>
+                                </constraints>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="postButton_touchUpInside:" destination="5fi-yT-Gsx" eventType="touchUpInside" id="eJj-au-2cX"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mW0-rP-fg4" firstAttribute="trailing" secondItem="ULR-RW-be6" secondAttribute="trailing" id="3E1-AR-K1N"/>
+                            <constraint firstItem="mW0-rP-fg4" firstAttribute="top" secondItem="ULR-RW-be6" secondAttribute="top" id="FQv-1A-HFi"/>
+                            <constraint firstItem="ULR-RW-be6" firstAttribute="bottom" secondItem="C95-XI-use" secondAttribute="bottom" constant="8" id="KgI-su-sUF"/>
+                            <constraint firstItem="mW0-rP-fg4" firstAttribute="leading" secondItem="ULR-RW-be6" secondAttribute="leading" id="WBX-zP-wgb"/>
+                            <constraint firstItem="C95-XI-use" firstAttribute="leading" secondItem="ULR-RW-be6" secondAttribute="leading" constant="8" id="eN3-G1-Uhu"/>
+                            <constraint firstItem="ULR-RW-be6" firstAttribute="trailing" secondItem="C95-XI-use" secondAttribute="trailing" constant="8" id="sLq-Hl-NAY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ULR-RW-be6"/>
                     </view>
                     <navigationItem key="navigationItem" title="Camera" id="QmR-Oa-PR9"/>
+                    <connections>
+                        <outlet property="captionTextView" destination="WLX-0B-4Jc" id="hIb-81-Z9m"/>
+                        <outlet property="photo" destination="FF0-p5-Gf6" id="zrU-Bv-QJJ"/>
+                        <outlet property="postButton" destination="C95-XI-use" id="YWL-Tm-Txt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o2s-9s-h3p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3512" y="1088"/>
+            <point key="canvasLocation" x="3511.594202898551" y="1087.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HI0-dg-QVE">
@@ -51,5 +105,6 @@
     </scenes>
     <resources>
         <image name="outline_photo_camera_black" width="24" height="24"/>
+        <image name="placeholder-photo" width="24" height="24"/>
     </resources>
 </document>

@@ -97,27 +97,30 @@ class SignUpViewController: UIViewController {
         ProgressHUD.show("Waiting...", interaction: false)
         
         let imageData = self.profileImage.image?.jpegData(compressionQuality: 0.1)
-        
-        AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData!, onSuccess: {
-            Timer.scheduledTimer(withTimeInterval: 0, repeats: false, block: { (timer) in
-                ProgressHUD.showSuccess("Success")
+        if selectedImage != nil{
+            AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData!, onSuccess: {
+                Timer.scheduledTimer(withTimeInterval: 0, repeats: false, block: { (timer) in
+                    ProgressHUD.showSuccess("Success")
+                })
+                self.performSegue(withIdentifier: "signUpTabBarVC", sender: nil)
+            }, onError: { error in
+                ProgressHUD.showError(error!)
             })
-            self.performSegue(withIdentifier: "signUpTabBarVC", sender: nil)
-        }, onError: { error in
-            ProgressHUD.showError(error!)
-        })
+        }else{
+            ProgressHUD.showError("Profile image can't be empty")
+        }
     }
 }
 
 extension SignUpViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
     @objc func handleSelectProfileImageView(){
-        let handleSelectProfileImageView = UIImagePickerController()
-        handleSelectProfileImageView.delegate = self
-        handleSelectProfileImageView.allowsEditing = true
-        handleSelectProfileImageView.sourceType = UIImagePickerController.SourceType.photoLibrary
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.allowsEditing = true
+        pickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
         
-        self.present(handleSelectProfileImageView, animated: true, completion: nil)
+        self.present(pickerController, animated: true, completion: nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage{
