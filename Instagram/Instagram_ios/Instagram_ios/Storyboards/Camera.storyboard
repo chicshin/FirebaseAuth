@@ -69,7 +69,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ULR-RW-be6"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Camera" id="QmR-Oa-PR9"/>
+                    <navigationItem key="navigationItem" title="Camera" id="QmR-Oa-PR9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="Vac-No-7H5">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cameraButton_touchUpInside:" destination="5fi-yT-Gsx" id="Day-lp-OIi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="captionTextView" destination="WLX-0B-4Jc" id="hIb-81-Z9m"/>
                         <outlet property="photo" destination="FF0-p5-Gf6" id="zrU-Bv-QJJ"/>

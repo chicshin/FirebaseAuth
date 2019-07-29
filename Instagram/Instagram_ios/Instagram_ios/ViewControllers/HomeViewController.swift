@@ -13,15 +13,26 @@ import FirebaseDatabase
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var posts = [Post]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         loadPosts()
+
     }
     
     func loadPosts(){
         Database.database().reference().child("posts").observe(.childAdded, with: { (snapshot: DataSnapshot) in
-            print(snapshot.value)
+            print(Thread.isMainThread)
+            if let dict = snapshot.value as? [String:Any]{
+                let captionText = dict["captionTextView"] as! String
+                let photoUrlString = dict["photoUrl"] as! String
+                let post = Post(captionText: captionText, photoUrlString: photoUrlString)
+                self.posts.append(post)
+                print(self.posts)
+                self.tableView.reloadData()
+            }
         })
     }
     @IBAction func logOut_touchUpInside(_ sender: Any) {
@@ -39,13 +50,12 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
-        cell.backgroundColor = .orange
-        cell.textLabel?.text = "\(indexPath.row)"
+        cell.textLabel?.text = posts[indexPath.row].captionTextView
         return cell
     }
     

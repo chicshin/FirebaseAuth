@@ -10,8 +10,9 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import ImagePicker
 
-class CameraViewController: UIViewController {
+class CameraViewController: UIViewController, ImagePickerDelegate {
 
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var photo: UIImageView!
@@ -67,6 +68,29 @@ class CameraViewController: UIViewController {
             self.selectedImage = nil
             self.tabBarController?.selectedIndex = 0
         })
+    }
+    
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]){
+        print("wrapper")
+    }
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]){
+        guard let image = images.first else {
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        selectedImage = image
+        photo.image = image
+        dismiss(animated: true, completion: nil)
+    }
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController){
+        print("cancel")
+    }
+
+    @IBAction func cameraButton_touchUpInside(_ sender: Any) {
+        let imagePickerController = ImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.imageLimit = 5
+        present(imagePickerController, animated: true, completion: nil)
     }
     
     @IBAction func postButton_touchUpInside(_ sender: Any) {
